@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> random number</title>
+	<style type="text/css">
+		td input
+		{
+			width: 80px;
+			height: 80px;
+			background-color: gray;
+			color: white;
+			font-size: 25px;
+			font-weight: bold;
+		}
+		
+		table
+		{
+			width: 255px;
+			background-color: orange;
+
+		}
+		div
+		{
+			width: 100%;
+			height: 60vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 25px;
+
+			
+		}
+		.restart
+		{
+			background-color: skyblue;
+			padding: 10px 20px;
+			font-size: 20px;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<table>
+		<tr>
+			<td><input type="button" name="" value="" id="btn1" onclick="shift()" class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn2" onclick="shift1()" class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn3" onclick="shift2()" class="btn"> </td>
+		</tr>
+		<tr>
+			<td><input type="button" name="" value="" id="btn4" onclick="shift3()" class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn5" onclick="shift4()" class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn6" onclick="shift5()" class="btn"> </td>
+		</tr>
+		<tr>
+			<td><input type="button" name="" value="" id="btn7"onclick="shift6()"  class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn8" onclick="shift7()" class="btn"> </td>
+			<td><input type="button" name="" value="" id="btn9" onclick="shift8()" class="btn"> </td>
+		</tr>
+	</table>
+	</div>
+	<center> 
+	<button onclick="rest()" class="restart">RESTART</button>
+	</center>
+	<center><h1 id="win"></h1> </center>
+	<script type="text/javascript">
+
+		var a1 = document.getElementById("btn1");
+		var a2 = document.getElementById("btn2");
+		var a3 = document.getElementById("btn3");
+		var a4 = document.getElementById("btn4");
+		var a5 = document.getElementById("btn5");
+		var a6 = document.getElementById("btn6");
+		var a7 = document.getElementById("btn7");
+		var a8 = document.getElementById("btn8");
+		var a9 = document.getElementById("btn9");
+
+	
+		var btn = document.querySelectorAll(".btn")
+
+
+		function rest() {
+				var arr = [];
+			// 	for(var i=0;i<btn.length;)
+			// 	{
+			// 		var x= Math.floor(Math.random()*9+1 );
+			// 		if(!arr.includes(x))
+			// 	{
+			// 		arr.push(x);
+			// 		i++;
+			// 		console.log(arr);
+			// 	}
+
+			// 	}
+			// 	for(var i=1;i<=	9;i++)
+			// 	{
+
+			// 		document.getElementById("btn"+i).value = arr[i];
+			// 	}
+			// 	for(var i=1;i<=	9;i++)
+			// 	{
+
+			// 		document.getElementById("btn"+i).value = arr[i];
+			// 	}
+
+			// }
+
+	
+			// for(var i=0;i<=9;i++)	
+			// {
+			// 	while(true)
+			// 	{
+			// 		var a = Math.ceil(Math.random()*9);
+			// 		if(arr[a]== "" )
+			// 		{
+			// 			document.getElementById('btn'+a ).value = i;
+			// 			document.getElementById('btn'+a ).disables = true;
+			// 			 arr[j] =j;
+			// 			 if (j ==9)
+			// 			 {
+			// 					document.getElementById('btn'+a ).value = "";
+			// 					arr[a]= "";
+
+			// 			 }
+			// 			 break;
+			// 		}
+			// 	}
+			// }	
+
+				var index = 0;
+				var num;
+
+		  
+			while(arr.length <= 9){
+					 num = Math.floor(Math.random() * 9);
+					 console.log(arr);
+				if (arr.indexOf(num) == -1)
+				{
+					arr[index] = num;
+					console.log(arr);
+					index++;
+					arr[index]="";
+				}
+
+			}
+		 	for(var inde=0; inde<btn.length; inde++)
+		 	{
+		 		if(arr[inde] == 0)
+		 		{
+		 			btn[inde].value = "";
+		 		}
+		 		else
+		 		{
+	        		btn[inde].value = arr[inde];
+	        	}
+	        }
+		}
+		rest();
+
+	function win() {
+		
+		if(a1.value == 0 && a2.value == 1 && a3.value==2 &&
+			a4.value == 3 && a5.value == 4 && a6.value==5 &&
+			a7.value == 6 && a8.value == 7 && a9.value== "")
+		{
+			document.getElementById("win").innerText="You Are Winner";
+		}
+		else
+		{
+			document.getElementById("win").innerText=" ";
+
+		}
+
+	}
+
+
+		
+		function shift(n)
+		{
+			if (document.getElementById("btn2").value == "")
+			{
+				
+				a2.value = document.getElementById('btn1').value;
+				a1.value = ""
+				win()
+			}
+			if (document.getElementById("btn4").value == "")
+			{
+				
+				a4.value = document.getElementById('btn1').value;
+				a1.value = ""
+				win()
+
+			}
+		
+		}
+		function shift1(n)
+		{
+			if (document.getElementById("btn1").value == "")
+			{
+				
+				a1.value = document.getElementById('btn2').value;
+				a2.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn3").value == "")
+			{
+				
+				a3.value = document.getElementById('btn2').value;
+				a2.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn5").value == "")
+			{
+				
+				a5.value = document.getElementById('btn2').value;
+				a2.value = ""
+				win()
+
+			}
+		
+		}
+		function shift2(n)
+		{
+			if (document.getElementById("btn2").value == "")
+			{
+				
+				a2.value = document.getElementById('btn3').value;
+				a3.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn6").value == "")
+			{
+				
+				a6.value = document.getElementById('btn3').value;
+				a3.value = ""
+				win()
+
+			}
+		
+		}
+		function shift3(n)
+		{
+			if (document.getElementById("btn1").value == "")
+			{
+				
+				a1.value = document.getElementById('btn4').value;
+				a4.value = ""
+				win()
+
+			}
+			
+			if (document.getElementById("btn5").value == "")
+			{
+				
+				a5.value = document.getElementById('btn4').value;
+				a4.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn7").value == "")
+			{
+				
+				a7.value = document.getElementById('btn4').value;
+				a4.value = ""
+				win()
+
+			}
+		
+		}
+		function shift4(n)
+		{
+			if (document.getElementById("btn2").value == "")
+			{
+				
+				a2.value = document.getElementById('btn5').value;
+				a5.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn4").value == "")
+			{
+				
+				a4.value = document.getElementById('btn5').value;
+				a5.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn6").value == "")
+			{
+				
+				a6.value = document.getElementById('btn5').value;
+				a5.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn8").value == "")
+			{
+				
+				a8.value = document.getElementById('btn5').value;
+				a5.value = ""
+				win()
+
+			}
+		
+		}
+		function shift5(n)
+		{
+			if (document.getElementById("btn9").value == "")
+			{
+				
+				a9.value = document.getElementById('btn6').value;
+				a6.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn3").value == "")
+			{
+				
+				a3.value = document.getElementById('btn6').value;
+				a6.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn5").value == "")
+			{
+				
+				a5.value = document.getElementById('btn6').value;
+				a6.value = ""
+				win()
+
+			}
+		
+		}
+		function shift6(n)
+		{
+			if (document.getElementById("btn4").value == "")
+			{
+				
+				a4.value = document.getElementById('btn7').value;
+				a7.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn8").value == "")
+			{
+				
+				a8.value = document.getElementById('btn7').value;
+				a7.value = ""
+				win()
+
+			}
+		
+		}
+		function shift7(n)
+		{
+			if (document.getElementById("btn9").value == "")
+			{
+				
+				a9.value = document.getElementById('btn8').value;
+				a8.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn7").value == "")
+			{
+				
+				a7.value = document.getElementById('btn8').value;
+				a8.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn5").value == "")
+			{
+				
+				a5.value = document.getElementById('btn8').value;
+				a8.value = ""
+				win()
+
+			}
+		
+		}
+		function shift8(n)
+		{
+			if (document.getElementById("btn6").value == "")
+			{
+				
+				a6.value = document.getElementById('btn9').value;
+				a9.value = ""
+				win()
+
+			}
+			if (document.getElementById("btn8").value == "")
+			{
+				
+				a8.value = document.getElementById('btn9').value;
+				a9.value = ""
+				win()
+
+			}
+		
+		}
+		
+	</script>
+
+</body>
+</html>
